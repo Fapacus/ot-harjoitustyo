@@ -6,3 +6,5 @@ Teen aineopintojen *harjoitustyön* kurssilla **ohjelmistotekniikka**.
 [Linkki alihakemistoon "laskarit"](laskarit/)
 
 [Linkki työaikakirjanpitoon](dokumentaatio/tyoaikakirjanpito.md)
+
+[Linkki vaatimusmäärittelyyn](dokumentaatio/vaatimusmaarittely.md)
