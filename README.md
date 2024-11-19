@@ -4,7 +4,7 @@ Teen aineopintojen *harjoitustyön* kurssilla **ohjelmistotekniikka**.
 
 *Harjoitustyön* aihe on **Muistipeli**.
 
-Testejä en vielä viikolla 3 ehtinyt kirjoittaa harjoitustyöhön.
+Testejä en vielä viikolla 3 ehtinyt kirjoittaa *harjoitustyöhön*.
 
 [Linkki alihakemistoon "laskarit"](laskarit/)
 
