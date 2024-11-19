@@ -1,4 +1,4 @@
-#Ohjelmistotekniikka, harjoitustyö
+# Ohjelmistotekniikka, harjoitustyö
 
 Teen aineopintojen *harjoitustyön* kurssilla **ohjelmistotekniikka**.
 
