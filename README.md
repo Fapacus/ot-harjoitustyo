@@ -1,7 +1,8 @@
 #Ohjelmistotekniikka, harjoitustyö
 
 Teen aineopintojen *harjoitustyön* kurssilla **ohjelmistotekniikka**.
-*Harjoitustyön* aihetta en ole *vielä* lyönyt lukkoon, mutta alustavasti olen miettinyt jonkin **pelin** tai **sähkön pörssihintaan** liittyvän *harjoitustyön* tekemistä. 
+*Harjoitustyön* aihe on **Muistipeli**.
+Testejä en vielä viikolla 3 ehtinyt kirjoittaa harjoitustyöhön.
 
 [Linkki alihakemistoon "laskarit"](laskarit/)
 
