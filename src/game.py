@@ -3,7 +3,8 @@ from database_connection import create_connection
 
 class MemoryGame:
     def __init__(self, connection):
-        self.connection = connection
+        #self.user_data = user_data
+        self.connection = connection #sqlite3.connect(user_data)
         self.create_table()
 
     def create_table(self):
@@ -54,11 +55,10 @@ class MemoryGame:
                 print("There is no such user. Please try again!")
             else:
                 password = input("Enter password: ").strip()
-                if self.check_user_password(username, password) == password:
+                if self.check_user_password(username) == password:
                     print("You in!")
                     break
-                else:
-                    print("Password lacking. Please try again!")
+                print("Password lacking. Please try again!")
 
     def check_user_existence(self, username):
         cursor = self.connection.cursor()
@@ -66,15 +66,15 @@ class MemoryGame:
             "SELECT 1 FROM users WHERE username = ?", (username,)
         )
         return cursor.fetchone() is not None
-    
-    def check_user_password(self, username, password):
+
+    def check_user_password(self, username):
         cursor = self.connection.cursor()
         cursor.execute(
             "SELECT password FROM users WHERE username = ?", (username,)
         )
         result = cursor.fetchone()
         return result[0]
-    
+
     def print_users(self):
         users = self.load_users()
         if len(users) == 0:
@@ -82,6 +82,11 @@ class MemoryGame:
             return
         for username, password in users.items():
             print(f"Username: {username}, Password: {password}")
+
+    def empty_database(self):
+        cursor = self.connection.cursor()
+        cursor.execute("DELETE FROM users")
+        self.connection.commit()
 
     def main(self):
         while True:
@@ -100,16 +105,12 @@ class MemoryGame:
                 self.print_users()
             elif choice == "4":
                 print("Auf Wiedersehen!")
+                self.connection.close()
                 break
             else:
                 print("Hell no! Please try again.")
 
-    def empty_database(self):
-        cursor = self.connection.cursor()
-        cursor.execute("DELETE FROM users")
-        self.connection.commit()
-        
 if __name__ == "__main__":
-    connection = create_connection()
-    game = MemoryGame(connection)
+    database_connection = create_connection()
+    game = MemoryGame(database_connection)
     game.main()

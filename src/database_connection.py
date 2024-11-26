@@ -1,4 +1,3 @@
-import os
 import sqlite3
 
 def create_connection(user_data="user_data.db"):
