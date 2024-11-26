@@ -2,7 +2,7 @@
 
 *Harjoitustyön* aihe on **Muistipeli**.
 
- **Viikko 4 takana ja seuraavat asiat koettelivat oikein toden teolla:**
+**Viikko 4 takana ja seuraavat asiat koettelivat oikein toden teolla:**
 
 from game import MemoryGame
 
