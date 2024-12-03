@@ -6,3 +6,6 @@ Viikko 3
 
 Viikko 4
 - 6(-12) tuntia (vaikea sanoa paljonko aikaa kului mihinkin, mutta README.md:ssa kuvailemiini ongelmiin kului useita tunteja tuon ilmoittamani 6 tunnin lisäksi, eikä ongelmat edes ratkenneet. Ongelmat ilmenivät ensimmäisen kerran, kun yritin ajaa testejä, joten liekö siihen liittyviä.)
+
+Viikko 5
+- 12 tuntia (sain vihdoin testauksen itsessään toimimaan, memory_game.py tekeminen)
