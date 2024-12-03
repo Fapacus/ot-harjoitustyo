@@ -1,7 +1,7 @@
 import sqlite3
 from database_connection import create_connection
 
-class MemoryGame:
+class Game:
     def __init__(self, connection):
         #self.user_data = user_data
         self.connection = connection #sqlite3.connect(user_data)
@@ -88,29 +88,9 @@ class MemoryGame:
         cursor.execute("DELETE FROM users")
         self.connection.commit()
 
-    def main(self):
-        while True:
-            choice = input(
-                "What u wanna do?\n"
-                "1. Register\n"
-                "2. Login\n"
-                "3. Print all users\n"
-                "4. Exit\n"
-            )
-            if choice == "1":
-                self.register_user()
-            elif choice == "2":
-                self.login_user()
-            elif choice == "3":
-                self.print_users()
-            elif choice == "4":
-                print("Auf Wiedersehen!")
-                self.connection.close()
-                break
-            else:
-                print("Hell no! Please try again.")
+    
 
 if __name__ == "__main__":
     database_connection = create_connection()
-    game = MemoryGame(database_connection)
+    game = Game(database_connection)
     game.main()
