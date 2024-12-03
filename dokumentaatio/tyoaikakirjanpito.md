@@ -9,3 +9,5 @@ Viikko 4
 
 Viikko 5
 - 12 tuntia (sain vihdoin testauksen itsessään toimimaan, memory_game.py tekeminen)
+
+## Yhteensä 24-30 tuntia
