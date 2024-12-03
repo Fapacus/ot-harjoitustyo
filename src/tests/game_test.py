@@ -1,10 +1,10 @@
 import unittest
 import sqlite3
-from game import MemoryGame
+from game import Game
 
-class TestMemoryGame(unittest.TestCase):
+class TestGame(unittest.TestCase):
     def setUp(self):
-        self.game = MemoryGame(sqlite3.connect(":memory:"))
+        self.game = Game(sqlite3.connect(":memory:"))
         self.game.empty_database()
 
     def test_register_user(self):

@@ -1,5 +1,8 @@
 from game import Game
 from memory_game import memory_game
+from database_connection import create_connection
+
+database_connection = create_connection()
 
 def main():
         while True:
@@ -15,16 +18,17 @@ def main():
             if choice == "1":
                 memory_game()
             elif choice == "2":
-                Game.register_user()
+                game.register_user()
             elif choice == "3":
-                Game.login_user()
+                game.login_user()
             elif choice == "4":
-                Game.print_users()
+                game.print_users()
             elif choice == "5":
                 print("Auf Wiedersehen!")
-                Game.connection.close()
+                game.connection.close()
                 break
             else:
                 print("Hell no! Please try again.")
 
+game = Game(database_connection)
 main()

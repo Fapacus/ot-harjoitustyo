@@ -2,7 +2,7 @@ from invoke import task
 
 @task
 def start(ctx):
-    ctx.run("python src/game.py")
+    ctx.run("python src/main.py")
 
 @task
 def test(ctx):
@@ -10,7 +10,7 @@ def test(ctx):
 
 @task
 def coverage(ctx):
-    ctx.run("coverage run --branch -m pytest")
+    ctx.run("coverage run --branch -m pytest src")
 
 @task(coverage)
 def coverage_report(ctx):

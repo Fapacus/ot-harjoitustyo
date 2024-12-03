@@ -81,7 +81,7 @@ class Game:
             print("There is no user data yet.")
             return
         for username, password in users.items():
-            print(f"Username: {username}, Password: {password}")
+            print(f"Username: {username}, Password: SECRET")
 
     def empty_database(self):
         cursor = self.connection.cursor()
@@ -90,7 +90,7 @@ class Game:
 
     
 
-if __name__ == "__main__":
-    database_connection = create_connection()
-    game = Game(database_connection)
-    game.main()
+
+database_connection = create_connection()
+game = Game(database_connection)
+

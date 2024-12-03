@@ -19,7 +19,6 @@ def memory_game():
 
     # korttien luonti
     cards = list(range(1, (grid_size * grid_size // 2) + 1)) * 2   # 1-8 kahteen kertaan
-    print(cards)
     random.shuffle(cards)   # sekotetaan kortit
     grid = []  # pelitaulukko korteista
     for i in range(grid_size):
@@ -47,9 +46,7 @@ def memory_game():
 
     def get_card(mouse_click):  # minkä kortin kohalla klikataan
         x, y = mouse_click
-        print(mouse_click)
         col, row = x // (card_size + margin), y // (card_size + margin)
-        print(col, "  ,   ", row)
         if 0 <= row <= grid_size and 0 <= col <= grid_size:  # jos klikkaus ikkunan sisällä
             return row, col
         return None
@@ -64,9 +61,9 @@ def memory_game():
     paired = []   # valmiit parit
 
     while running:
-        screen.fill((22, 22, 22))  # taustan väri
-        draw_grid()  # piirrä korttiruudukko
-        pygame.display.flip()  # päivitä tiedot
+        screen.fill((22, 22, 22))   # taustan väri
+        draw_grid()   # piirrä korttiruudukko
+        pygame.display.flip()   # päivitä tiedot
 
         if check_win(): # katotaan onko voitto
             pygame.time.delay(3000)
