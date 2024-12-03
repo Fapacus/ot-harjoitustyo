@@ -6,7 +6,7 @@ Sovellus pitäisi käynnistyä komennolla:
 ```bash
 poetry run invoke start
 ```
-Jos poetry run invoke start komennon kanssa on ongelmia, niin käynnistymisen voi hoitaa myös ajamalla main.py -tiedosto.
+Jos poetry run invoke start komennon kanssa on ongelmia, niin käynnistymisen voi hoitaa myös ajamalla main.py -tiedosto, joka löytyy src-kansiosta.
 
 [Linkki Releaseen](https://github.com/Fapacus/ot-harjoitustyo/releases/tag/viikko5)
 
