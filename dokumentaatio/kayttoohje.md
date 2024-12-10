@@ -4,4 +4,5 @@ Jos aloitat pelin, siirryt suoraan pelaamaan.
 
 Pelaaminen tapahtuu klikkailemalla hiiren vasenta näppäintä.
 
+
 (*päivitystä ohjeisiin luvassa asap*)
