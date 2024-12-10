@@ -18,3 +18,6 @@ Itse pelaaminen tapahtuu hiirellä klikkaillen laatikoita ja yrittäen saada kak
 [Linkki työaikakirjanpitoon](dokumentaatio/tyoaikakirjanpito.md)
 
 [Linkki vaatimusmäärittelyyn](dokumentaatio/vaatimusmaarittely.md)
+
+[Linkki käyttöohjeisiin](dokumentaatio/kayttoohje.md)
+
