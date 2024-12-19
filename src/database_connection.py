@@ -1,5 +1,5 @@
 import sqlite3
 
-def create_connection(user_data="user_data.db"):
-    connection = sqlite3.connect(user_data)
-    return connection
+def database_connection(user_data="user_data.db"):
+    data_connection = sqlite3.connect(user_data)
+    return data_connection

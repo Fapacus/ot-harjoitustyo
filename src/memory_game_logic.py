@@ -1,7 +1,15 @@
 import random
+from game import Game
+from database_connection import database_connection
+from highscore_connection import highscore_connection
+
+data_connection = database_connection()
+score_connection = highscore_connection()
+
 
 class MemoryGameLogic:
-    def __init__(self, grid_size):
+    def __init__(self, game, grid_size):
+        self.game = game
         self.grid_size = grid_size
         self.cards = self.create_cards()
         self.grid = self.create_grid()
@@ -21,7 +29,7 @@ class MemoryGameLogic:
         cards = list(range(1, (self.grid_size * self.grid_size // 2) + 1)) * 2
         random.shuffle(cards)
         return cards
-    
+
     def create_grid(self):
         """
         Creates the game grid. The grid is a list of lists, where each inner
@@ -50,7 +58,7 @@ class MemoryGameLogic:
             self.revealed[row][col] = True
             return True
         return False
-    
+
     def hide_card(self, row, col):
         """
         Hides a card in the game grid at the given row and column.
@@ -62,7 +70,7 @@ class MemoryGameLogic:
         if self.revealed[row][col]:
             self.revealed[row][col] = False
 
-    
+
     def get_card(self, mouse_click, margin, card_size):    # minkä kortin kohalla klikataan
         """
         Determines the card position in the grid based on a mouse click.
@@ -79,7 +87,7 @@ class MemoryGameLogic:
         if 0 <= row < self.grid_size and 0 <= col < self.grid_size:
             return row, col
         return None
-    
+
     def check_win(self):
         """
         Checks if the game is won by checking the length of paired list.
@@ -88,7 +96,7 @@ class MemoryGameLogic:
             True if the game is won, False otherwise.
         """
         return len(self.paired) == self.grid_size * self.grid_size
-    
+
     def handling_the_click(self, position, margin, card_size):
         """
         Handles the click event on the game grid depending on the boolean value of not_pair.
@@ -134,3 +142,13 @@ class MemoryGameLogic:
         Decreases the score by 10 points if it is not already zero.
         """
         self.score = max(0, self.score - 10)
+
+    def scoreboard(self, score):
+        if self.game.get_score_count() >= 10:
+            lowest_score = self.game.get_lowest_score()
+            if score > lowest_score:
+                self.game.del_lowest_score()
+                self.game.save_score(score)
+        else:
+            self.game.save_score(score)
+
