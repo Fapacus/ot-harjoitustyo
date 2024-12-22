@@ -10,6 +10,8 @@ Tämän jälkeen voit käynnistää ohjelman käyttäen komentoa:
 ```
 poetry run invoke start
 ```
+Mikäli edellä mainittu ei toimi, käynnistyy peli suorittamalla src-kansiosta löytyvän "main.py"-tiedoston.
+
 
 ## Ohjelman käyttäminen
 Ohjelman avauduttua tulostuu konsoliin numeroidut vaihtoehdot, jotka voit suorittaa syöttämällä toimenpidettä vastaavan numeron konsoliin.
