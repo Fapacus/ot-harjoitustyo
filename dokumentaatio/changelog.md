@@ -9,3 +9,7 @@
 - Lisätty pisteenlasku mukaan
 
 - Lisätty docstringit melko kattavasti
+
+# Viikko 7 ja 8
+- Lisätty testit
+- Viimeistelty kokonaisuutta
