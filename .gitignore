@@ -2,3 +2,5 @@
 __pycache__
 .coverage
 htmlcov
+user_data.db
+scoreboard.db
