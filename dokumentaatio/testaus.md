@@ -1,0 +1,1 @@
+Ohjelman game.py ja memory_game_logic.py on testattu.
