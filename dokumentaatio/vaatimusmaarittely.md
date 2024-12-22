@@ -1,16 +1,14 @@
 # Vaatimusmäärittely
 Muistipeli
 ## Sovelluksen tarkoitus
-Sovelluksen tarkoituksena on toimia ajanvietteenä joko yhdelle tai kahdelle pelaajalle kerrallaan. Yksin pelatessa pelaaja kilpailee pisteistä, kun taas kahden pelatessa pelaajat kilpailevat toisiaan vastaan.
+Sovelluksen tarkoituksena on toimia ajanvietteenä yhdelle pelaajalle kerrallaan, mutta useampi pelaaja voi kilpailla vuoronperään siitä pääseekö pistetaulukkoon. Yksin pelatessa pelaaja kilpailee pisteistä, jotka määräytyvät kortin kääntömäärien ja kuluneen ajan perusteella.
 ## Pelaajat/Käyttäjät
-Tarkoituksena olisi, että peliin voisi rekisteröidä käyttäjän, mutta pelaaminen olisi mahdollista myös ns. vieraana ilman rekisteröitymistä.
+Peliin voi rekisteröidä käyttäjän, mutta pelaaminen on mahdollista myös ns. vieraana ilman rekisteröitymistä.
 ## Pelaaminen
-Pelaaja/t aloittaa pelin, minkä jälkeen avautuu pelikenttä, jossa kortit ovat selkäpuoli ylöspäin pelaajaa kohden. Tämän jälkeen pelaaja voi näppäimillä tai hiiren osoittimella valita käännettävät kaksi korttia. Jos käännetyt kortit ovat toisiaan vastaavat, saa pelaaja pisteen.
+Pelaajan aloitettua pelin avautuu pelikenttä, jossa kortit ovat selkäpuoli ylöspäin pelaajaa kohden. Tämän jälkeen pelaaja voi hiiren vasenta näppäintä klikkaamalla valita käännettävät kaksi korttia. Jos käännetyt kortit ovat toisiaan vastaavat, saa pelaaja muodostettua korteista parin, eivätkä ne käänny enää ylösalaisin.
 ## Pelin lopuksi
-Peli loppuu kun kaikki korttiparit on löydetty tai kun maksimimäärä siirtoja on käytetty. Ohjelma ilmottaa pelin lopuksi pelaajan suoriutumisen pelissä (joko pisteet tai voitto/häviö).
+Peli loppuu kun kaikki korttiparit on löydetty. Ohjelma ilmottaa pelin lopuksi pelaajan suoriutumisen pelissä tulostamalla pelaajan saamat pisteet konsoliin näkyville. 
 ## Jatkokehitysideoita
-Ensimmäisenä tavoitteena on saada mahdollisimman perusmuotoinen muistipeli aikaiseksi. Tilanteen niin salliessa, voi muistipeliä parannella uusilla ominaisuuksilla. Alla ideoita uusista ominaisuuksista.
+Alla ideoita uusista ominaisuuksista.
 - Korttiparien lukumäärän valitseminen pelin alussa.
-- Parhaiden pisteiden lista tai eniten voittoja saavuttaneiden pelaajien lista tallennettuna tietokantaan.
-- Siirtokellon lisääminen.
 - Muistipelin ulkoasun hiominen mahdollisimman hienoksi.
