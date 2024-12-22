@@ -111,17 +111,22 @@ class Game:
             "INSERT INTO scores (username, score) VALUES (?, ?)",
             (username, score)
         )
+        print(f"You made it to Scoreboard!")
         self.score_connection.commit()
 
     def print_scores(self):
+        print("SCOREBOARD")
+        print("--------------------------")
         if self.get_score_count() == 0:
             print("There are no scores yet.")
             return
         cursor = self.score_connection.cursor()
         cursor.execute("SELECT username, score FROM scores ORDER BY score DESC, timestamp ASC")
+        count = 0
         for row in cursor.fetchall():
-            username, score, timestamp = row
-            print(f"Username: {username}, Score: {score}")
+            count += 1
+            username, score = row
+            print(f"{count}: Username: {username}, Score: {score}")
 
         self.score_connection.commit()
 

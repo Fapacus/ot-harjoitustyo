@@ -9,9 +9,9 @@ score_connection = highscore_connection()
 def main():
     while True:
         print("")
-        print(f"Welcome to Muistipeli! (Login status: {game.get_username()})")
+        print(f"Welcome to Muistipeli!\n")
         choice = input(
-            "What u wanna do?\n"
+            f"What u wanna do? (Login status: {game.get_username()})\n"
             "1. Play on!!\n"
             "2. Register\n"
             "3. Login\n"
@@ -20,7 +20,7 @@ def main():
             "6. Print all users (as admin)\n"
             "7. Exit\n"
         )
-
+        print("")
         if choice == "1":
             memory_game(game)
         elif choice == "2":

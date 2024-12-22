@@ -151,4 +151,6 @@ class MemoryGameLogic:
                 self.game.save_score(score)
         else:
             self.game.save_score(score)
+        
+        print(f"Your score was: {self.score}")
 
