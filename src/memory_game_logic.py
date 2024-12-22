@@ -1,5 +1,4 @@
 import random
-from game import Game
 from database_connection import database_connection
 from highscore_connection import highscore_connection
 
@@ -151,6 +150,5 @@ class MemoryGameLogic:
                 self.game.save_score(score)
         else:
             self.game.save_score(score)
-        
-        print(f"Your score was: {self.score}")
 
+        print(f"Your score was: {score}")

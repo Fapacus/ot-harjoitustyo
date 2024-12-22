@@ -1,13 +1,12 @@
-import sqlite3
 from database_connection import database_connection
 from highscore_connection import highscore_connection
 
 class Game:
     def __init__(self, data_connection, score_connection):
-        #self.user_data = user_data
-        self.data_connection = data_connection #sqlite3.connect(user_data)
+        self.data_connection = data_connection
         self.score_connection = score_connection
         self.user = ""
+        self.user_input = input
         self.create_datatable()
         self.create_scoretable()
 
@@ -34,14 +33,11 @@ class Game:
 
     def load_users(self):
         users = {}
-        try:
-            cursor = self.data_connection.cursor()
-            cursor.execute("SELECT username, password FROM users")
-            for row in cursor.fetchall():
-                username, password = row
-                users[username] = password
-        except sqlite3.DatabaseError:
-            print("There is no user data yet.")
+        cursor = self.data_connection.cursor()
+        cursor.execute("SELECT username, password FROM users")
+        for row in cursor.fetchall():
+            username, password = row
+            users[username] = password
         return users
 
     def save_user(self, username, password):
@@ -54,22 +50,22 @@ class Game:
 
     def register_user(self):
         while True:
-            username = input("Enter username: ").strip()
+            username = self.user_input("Enter username: ").strip()
             if self.check_user_existence(username):
                 print("Copycat. Please try again!")
             else:
-                password = input("Enter password: ").strip()
+                password = self.user_input("Enter password: ").strip()
                 self.save_user(username, password)
                 print("User registered successfully!")
                 break
 
     def login_user(self):
         while True:
-            username = input("Enter username: ").strip()
+            username = self.user_input("Enter username: ").strip()
             if not self.check_user_existence(username):
                 print("There is no such user. Please try again!")
             else:
-                password = input("Enter password: ").strip()
+                password = self.user_input("Enter password: ").strip()
                 if self.check_user_password(username) == password:
                     self.user = username
                     print("You in!")
@@ -111,7 +107,7 @@ class Game:
             "INSERT INTO scores (username, score) VALUES (?, ?)",
             (username, score)
         )
-        print(f"You made it to Scoreboard!")
+        print("You made it to Scoreboard!")
         self.score_connection.commit()
 
     def print_scores(self):
@@ -134,7 +130,7 @@ class Game:
         cursor = self.score_connection.cursor()
         cursor.execute("SELECT MIN(score) FROM scores")
         return cursor.fetchone()[0]
-    
+
     def del_lowest_score(self):
         cursor = self.score_connection.cursor()
         cursor.execute("DELETE FROM scores WHERE score = (SELECT MIN(score) FROM scores)")
@@ -158,6 +154,6 @@ class Game:
         cursor.execute("DELETE FROM scores")
         self.score_connection.commit()
 
-data_connection = database_connection()
-score_connection = highscore_connection()
-game = Game(data_connection, score_connection)
+databas_connection = database_connection()
+scoreboard_connection = highscore_connection()
+game = Game(databas_connection, scoreboard_connection)

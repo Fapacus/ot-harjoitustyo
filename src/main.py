@@ -9,7 +9,7 @@ score_connection = highscore_connection()
 def main():
     while True:
         print("")
-        print(f"Welcome to Muistipeli!\n")
+        print("Welcome to Muistipeli!\n")
         choice = input(
             f"What u wanna do? (Login status: {game.get_username()})\n"
             "1. Play on!!\n"
@@ -41,6 +41,4 @@ def main():
             print("Hell no! Please try again.")
 
 game = Game(data_connection, score_connection)
-#game.empty_database()
-#game.empty_scorebase()
 main()

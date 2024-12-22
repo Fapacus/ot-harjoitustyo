@@ -1,5 +1,5 @@
-import pygame
 import time
+import pygame
 from memory_game_logic import MemoryGameLogic
 
 def memory_game(game):  # pygame settings
@@ -16,7 +16,7 @@ def memory_game(game):  # pygame settings
 
     # game settings
     game_logic = MemoryGameLogic(game, grid_size=4)
-    grid_size = game_logic.grid_size  # 4x4-ruudukko
+    grid_size = game_logic.grid_size  # 4x4-grid
     margin = 25
     card_size = (width - (margin * (grid_size))) // (grid_size)   # 125
 
@@ -30,27 +30,26 @@ def memory_game(game):  # pygame settings
                 x = col * (card_size + margin) + margin   # margin, margin+card_size+margin, ...
                 y = row * (card_size + margin) + margin
                 rect = pygame.Rect(x, y, card_size - margin, card_size - margin)
-                if game_logic.revealed[row][col]:# jos kortti True, piirretään kortin arvo näkyville
-                    if (row, col) in game_logic.paired:  # jos kortti on jo pari
-                        pygame.draw.rect(screen, (100, 50, 50), rect) # punertava
+                if game_logic.revealed[row][col]:# if the card is True
+                    if (row, col) in game_logic.paired:  # if it's a pair
+                        pygame.draw.rect(screen, (100, 50, 50), rect) # reddish
                     else:
                         pygame.draw.rect(screen, (200, 200, 200), rect)
                     text = font.render(str(game_logic.grid[row][col]), True, (0, 0, 0))
                     screen.blit(text, (x + card_size // 3, y + card_size // 4))
-                else:   # piirretään kortin selkämys
-                    pygame.draw.rect(screen, (50, 100, 50), rect)  # vihertävä
+                else:   # drawing the hidden cards
+                    pygame.draw.rect(screen, (50, 100, 50), rect)  # greenish
 
     # game loop starts right here
     running = True
     start_time = None
     while running:
-        screen.fill((22, 22, 22))   # taustan väri
-        draw_grid()   # piirrä korttiruudukko
+        screen.fill((22, 22, 22))   # background color
+        draw_grid()   # drawing the grid
         score_text = score_font.render(f"Score: {game_logic.score}", True, (255, 255, 255))
         screen.blit(score_text, (10, 10))
-        pygame.display.flip()   # päivitä tiedot
-
-        if game_logic.check_win(): # katotaan onko voitto
+        pygame.display.flip()   # refresh
+        if game_logic.check_win(): # checking if winning the game
             end_time = time.time()
             total_time = end_time - start_time
             game_logic.score -= int(total_time)
@@ -58,14 +57,14 @@ def memory_game(game):  # pygame settings
             pygame.time.delay(3000)
             running = False
 
-        for event in pygame.event.get():  # tapahtuma kaikissa tapahtumissa
-            if event.type == pygame.QUIT:   # ikkunan sulkeutuminen
-                running = False             # peli loppuu
+        for event in pygame.event.get():  # one event in all the events
+            if event.type == pygame.QUIT:   # closing the window
+                running = False             # game over
 
-            if event.type == pygame.MOUSEBUTTONDOWN:    # jos klikkaus
+            if event.type == pygame.MOUSEBUTTONDOWN:    # if click
                 if start_time is None:
                     start_time = time.time()
-                position = pygame.mouse.get_pos()# tallennetaan hiiren sijainti klikkauksen hetkellä
+                position = pygame.mouse.get_pos() # save mouse position
                 game_logic.handling_the_click(position, margin, card_size)
                 game_logic.handling_the_selection()
 
