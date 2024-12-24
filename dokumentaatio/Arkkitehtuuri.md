@@ -22,8 +22,8 @@ sequenceDiagram
     participant user_data.db
     participant scoreboard.db
 
-    game.py->>database_connection.py: molemminpuoleinen yhteys
-    game.py->>highscore_connection.py: molemminpuoleinen yhteys
-    database_connection.py->>user_data.db: molemminpuoleinen yhteys
-    highscore_connection.py->>scoreboard.db: molemminpuoleinen yhteys
+    game.py<<->>database_connection.py: molemminpuoleinen yhteys
+    game.py<<->>highscore_connection.py: molemminpuoleinen yhteys
+    database_connection.py<<->>user_data.db: molemminpuoleinen yhteys
+    highscore_connection.py<<->>scoreboard.db: molemminpuoleinen yhteys
 ```
