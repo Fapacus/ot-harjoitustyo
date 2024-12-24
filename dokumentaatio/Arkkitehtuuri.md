@@ -1,5 +1,5 @@
 # SOVELLUKSEN ARKKITEHTUURI
-- Sovelluksen arkkitehtuuri noudattaa seuraavaa rakennetta:
+- Sovelluksen arkkitehtuuri noudattaa käyttöliittymien ja logiikan osalta seuraavaa rakennetta:
 
 ```mermaid
 sequenceDiagram
@@ -14,6 +14,8 @@ sequenceDiagram
     memory_game_logic.py->>game.py: kutsuu sovelluslogiikkaa
 ```
 
+- Sovelluksen arkkitehtuuri noudattaa tiedon tallentamisen ja haun osalta seuraavaa rakennetta:
+
 ```mermaid
 sequenceDiagram
     participant game.py
@@ -22,8 +24,8 @@ sequenceDiagram
     participant user_data.db
     participant scoreboard.db
 
-    game.py<<->>database_connection.py: molemminpuoleinen yhteys
-    game.py<<->>highscore_connection.py: molemminpuoleinen yhteys
-    database_connection.py<<->>user_data.db: molemminpuoleinen yhteys
-    highscore_connection.py<<->>scoreboard.db: molemminpuoleinen yhteys
+    game.py<<->>database_connection.py: yhteys käyttäjien tietoihin
+    game.py<<->>highscore_connection.py: yhteys pistetaulukkoon
+    database_connection.py<<->>user_data.db: yhteys käyttäjien tiedot sisältävään tietokantaan
+    highscore_connection.py<<->>scoreboard.db: yhteys pistetaulukon tiedot sisältävään tietokantaan
 ```
