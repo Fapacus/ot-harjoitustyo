@@ -1,10 +1,4 @@
 import random
-from database_connection import database_connection
-from highscore_connection import highscore_connection
-
-data_connection = database_connection()
-score_connection = highscore_connection()
-
 
 class MemoryGameLogic:
     def __init__(self, game, grid_size):
@@ -70,7 +64,7 @@ class MemoryGameLogic:
             self.revealed[row][col] = False
 
 
-    def get_card(self, mouse_click, margin, card_size):    # minkä kortin kohalla klikataan
+    def get_card(self, mouse_click, margin, card_size):    # where is the mouse click on the grid
         """
         Determines the card position in the grid based on a mouse click.
 
@@ -103,37 +97,36 @@ class MemoryGameLogic:
         Args:
             position: A tuple containing the x and y coordinates of the click event.
         """
-        if self.not_pair:    # jos todettu että ei pari ja nappia painettiin
+        if self.not_pair:    # if not pair
             r1, c1 = self.selected[0]
             r2, c2 = self.selected[1]
             self.hide_card(r1, c1)
             self.hide_card(r2, c2)
-            self.selected = []  # valittujen korttien tyhjennys
-            self.not_pair = False  # muutetaan taas Falseksi
+            self.selected = []  # emptying selected
+            self.not_pair = False  # set to False
         else:
-            # pelaaja kääntää uuden kortin
+            # player turns a card
             card = self.get_card(position, margin, card_size)
-            if card and not self.revealed[card[0]][card[1]]:  # tarkistus onko jo käännetty
+            if card and not self.revealed[card[0]][card[1]]:  # check if already revealed
                 self.selected.append(card)
                 self.reveal_card(card[0], card[1])
 
     def handling_the_selection(self):
-         # tarkistetaan onko kaksi korttia valittu ja False
         """
         First checking if two cards are selected and not_pair is False.
         Then checking if the selected cards have the same value. If they do,
         they are added to the paired list. If they don't, not_pair is set to True.
         """
-        if len(self.selected) == 2 and not self.not_pair:
+        if len(self.selected) == 2 and not self.not_pair:  # checking if two cards are selected
             r1, c1 = self.selected[0]
             r2, c2 = self.selected[1]
 
-            if self.grid[r1][c1] == self.grid[r2][c2]:  # jos käännetyissä korteissa on sama arvo
-                self.paired.append(self.selected[0])     # lisätään valmis pari
+            if self.grid[r1][c1] == self.grid[r2][c2]:  # if cards have the same value
+                self.paired.append(self.selected[0])     # add to paired
                 self.paired.append(self.selected[1])
-                self.selected = []   # jos tuli pari nii selectin tyhjennys
+                self.selected = []   # in case of a pair, emptying selected
             else:
-                self.not_pair = True  # muutetaan Trueksi
+                self.not_pair = True  # set to True
                 self.decrease_score()
 
     def decrease_score(self):
@@ -143,6 +136,11 @@ class MemoryGameLogic:
         self.score = max(0, self.score - 10)
 
     def scoreboard(self, score):
+        """
+        If the scoreboard has more than 10 scores, checks if the score is higher than the lowest score in the scoreboard.
+        If scoreboard has less than 10 scores, saves the score without further checks.
+        Prints a message with the score.
+        """
         if self.game.get_score_count() >= 10:
             lowest_score = self.game.get_lowest_score()
             if score > lowest_score:
