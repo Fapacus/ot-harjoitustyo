@@ -1,5 +1,5 @@
 # Vaatimusmäärittely
-Muistipeli
+Muistipeli-sovelluksen vaatimusmäärittely.
 ## Sovelluksen tarkoitus
 Sovelluksen tarkoituksena on toimia ajanvietteenä yhdelle pelaajalle kerrallaan, mutta useampi pelaaja voi kilpailla vuoronperään siitä pääseekö pistetaulukkoon. Yksin pelatessa pelaaja kilpailee pisteistä, jotka määräytyvät kortin kääntömäärien ja kuluneen ajan perusteella.
 ## Pelaajat/Käyttäjät
