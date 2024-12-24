@@ -66,3 +66,15 @@ sequenceDiagram
         end
     end
 ```
+
+## SOVELLUKSEN ARKKITEHTUURI SANALLISESTI KUVATTUNA
+- Tiedosto main.py käynnistää sovelluksen ja toimii käyttäjälle samalla tekstikäyttöliittymänä.
+- Vaihtoehtoina tekstikäyttöliittymässä on käyttäjällä pelata, rekisteröityä, kirjautua sisään, tulostaa pistetaulukko, tulostaa käyttäjät ilman salasanan näkyvyyttä, tulostaa käyttäjät salasana näkyvillä, ja lopettaa sovelluksen käyttö.
+
+- Tiedosto game.py sisältää käytännössä kaikki "käytännön asiat", jotka eivät liity niinkään suoranaisesti pelaamiseen, vaan ennemmin tietojen tarkistamiseen, tuomiseen ja tallentamiseen. Sekä main.py että memory_game_logic käyttävät game.py -tiedostoa toiminnoissaan.
+
+- Tiedosto memory_game.py sisältää itse muistipelin pyörittämiseen tarvittavat asiat kuten graafisen käyttöliittymän. Memory_game.py kommunikoi runsaasti memory_game_logic.py -tiedoston kanssa.
+
+- Tiedosto memory_game_logic sisältää käytännössä kaikki muistipelissä tarvittavat toiminnallisuudet ja se hyödyntää toiminnoissaan game.py -tiedostoa.
+
+- Tiedostot database_connection.py ja highcore_connection.py kommunikoivat tiedoston game.py kanssa ja toimivat näin ollen yhteyksien luojina tietokantataluihin user_data.db ja scoreboard.db.
